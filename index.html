@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="陈彦霆 Eric Chen - 数字媒体设计师、AI 设计、品牌视觉内容创作者，连接艺术表达与商业价值。"
+    />
+    <title>陈彦霆 Eric Chen | Digital Media Designer</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <a class="brand" href="#home" aria-label="返回首页">
+        <span>ERIC Chen</span>
+        <small>Portfolio / 2026</small>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#channels">Channels</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <div class="site-plasma-shell" aria-hidden="true">
+      <canvas class="site-plasma-canvas" data-plasma-canvas></canvas>
+      <div class="site-plasma-vignette"></div>
+    </div>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-media" aria-hidden="true">
+          <video class="hero-background-video" autoplay muted loop playsinline preload="metadata" poster="./其他/封面.webp">
+            <source src="./site-assets/video/home-bg.mp4" type="video/mp4" />
+          </video>
+          <canvas class="hero-galaxy" data-galaxy-canvas></canvas>
+          <div class="hero-shade"></div>
+        </div>
+
+        <div class="hero-opening" aria-hidden="true">
+          <span class="hero-opening-panel hero-opening-panel-left"></span>
+          <span class="hero-opening-panel hero-opening-panel-right"></span>
+          <span class="hero-opening-rule"></span>
+          <span class="hero-opening-label">ERIC CHEN / PORTFOLIO 2026</span>
+        </div>
+
+        <div class="hero-content reveal">
+          <div class="hero-interface">
+            <div class="hero-frame-bar" data-text-stage="1">
+              <span>Art and Technology</span>
+              <span>Based in Macau / Hangzhou</span>
+              <span>Year 2026</span>
+            </div>
+            <div class="hero-core">
+              <h1 class="hero-name">
+                <span class="hero-name-cn" data-text-stage="2">陈彦霆</span>
+                <span class="hero-name-en" data-text-stage="3">Eric Chen</span>
+              </h1>
+              <p class="hero-line" data-text-stage="4">
+                <span>数字媒体设计师 / 品牌视觉内容创作者</span>
+                <small data-text-type="Digital Media Designer / Brand Visual Content Creator"></small>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section intro-band reveal" aria-label="定位">
+        <div class="section-kicker">Positioning</div>
+        <p>
+          以影像、装置、AIGC 与品牌内容为创作媒介，构建从概念策划、视觉表达，到项目落地与传播的完整创作体系，探索艺术表达与商业价值之间的融合。
+        </p>
+      </section>
+
+      <section class="section work-section" id="work">
+        <div class="section-head reveal">
+          <div>
+            <h2>Selected Works</h2>
+          </div>
+        </div>
+        <div class="work-grid" data-work-grid></div>
+      </section>
+
+      <section class="platform-section" id="project-detail" aria-label="更多作品">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">More Practice</div>
+            <h2>更多影像与摄影作品</h2>
+          </div>
+          <p>在完整项目案例之外，继续浏览我的动态影像与摄影创作。</p>
+        </div>
+        <div class="platform-grid reveal">
+          <a class="platform-card platform-card-video" href="https://www.xinpianchang.com/u13756257" target="_blank" rel="noreferrer">
+            <img class="platform-cover" src="./其他/新片场封面.webp" alt="新片场其他视频作品" loading="lazy" decoding="async" fetchpriority="low" />
+            <span class="platform-shade"></span>
+            <span class="platform-copy">
+              <img class="platform-logo" src="./site-assets/icon-xpc.png" alt="新片场" />
+              <span>
+                <small>Moving Image / Film</small>
+                <strong>其他视频作品</strong>
+              </span>
+              <i aria-hidden="true">↗</i>
+            </span>
+          </a>
+          <a class="platform-card platform-card-photo" href="https://500px.com.cn/GuanXer" target="_blank" rel="noreferrer">
+            <img class="platform-cover" src="./其他/视觉中国图片.jfif" alt="视觉中国其他摄影作品" loading="lazy" decoding="async" fetchpriority="low" />
+            <span class="platform-shade"></span>
+            <span class="platform-copy">
+              <img class="platform-logo" src="./site-assets/icon-500px.png" alt="视觉中国" />
+              <span>
+                <small>Photography / Visual</small>
+                <strong>其他摄影作品</strong>
+              </span>
+              <i aria-hidden="true">↗</i>
+            </span>
+          </a>
+        </div>
+      </section>
+
+      <section class="section about-section" id="about">
+        <div class="about-grid">
+          <div class="about-portrait reveal">
+            <img src="./site-assets/profile.jpg" alt="陈彦霆 Eric Chen 个人形象" loading="lazy" decoding="async" fetchpriority="low" />
+          </div>
+          <div class="about-copy reveal">
+            <div class="section-kicker">About</div>
+            <h2>Eric Chen / 陈彦霆</h2>
+            <p>
+              艺术与科技专业本科生，现就读于澳门大学视觉传达方向研究生，常驻澳门与杭州。创作横跨 AI 视觉、三维影像、互动装置、产品周边与品牌内容传播，同时担任「贴地飞行」联合创始人及「叁源社 THE3.EDU」核心成员。
+            </p>
+            <p>
+              我关注作品如何从视觉表达走向真实传播、用户体验与商业落地，在建立独特视觉语言的同时，探索品牌、技术、平台与用户之间的关系，构建从概念、创作到传播与执行的完整实践链路。
+            </p>
+            <div class="interest-row" aria-label="兴趣爱好">
+              <span>汽车</span>
+              <span>滑雪</span>
+              <span>摄影</span>
+              <span>旅游</span>
+              <span>看展</span>
+            </div>
+            <div class="about-stats experience-list" aria-label="经历亮点">
+              <article class="experience-card">
+                <span class="experience-time">2022.06 - 至今</span>
+                <strong>杭州科耐德电脑有限公司 | 联合创始人</strong>
+                <p>
+                  主导「贴地飞行」等 B 站账号从选题、文案、拍摄、剪辑到运营的全流程内容输出，沉淀 PC 硬件、数码 DIY 与汽车兴趣人群，累计播放 2800W+。
+                </p>
+                <p>
+                  负责频道包装、视频封面、内容简介与周边产品设计，推动同济大学电车队、拓竹 3D 打印等长期合作，将视觉内容转化为可传播的商业资产。
+                </p>
+                <a
+                  href="https://space.bilibili.com/1617515924?spm_id_from=333.337.search-card.all.click"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  贴地飞行 Bilibili
+                </a>
+              </article>
+              <article class="experience-card">
+                <span class="experience-time">2026.01 - 至今</span>
+                <strong>叁源色文化科技（杭州）有限公司 | 核心成员</strong>
+                <p>
+                  参与叁源社 THE3.EDU 的商务、设计与摄影工作，负责 Meetup 周边和 IP 实物产品的建模、3D 打印与落地，并制作商业合作模板。
+                </p>
+                <p>
+                  统筹现场拍摄与后期视频剪辑，以影像内容强化社区传播；活动回顾视频获 TouchDesigner 官方转发，形成艺术社区与品牌影响力的连接。
+                </p>
+                <a
+                  href="https://www.xiaohongshu.com/user/profile/5f538c410000000001005c88?xsec_token=AB8_9_MW7Aj4f2mdc14l5oex404JE3--zElthSL9xOLN4%3D&xsec_source=pc_search"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  叁源社小红书
+                </a>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <section class="awards-panel reveal" aria-labelledby="awards-title">
+          <div class="awards-heading">
+            <div class="section-kicker">Awards & Recognition</div>
+            <h2 id="awards-title">获奖记录</h2>
+          </div>
+          <div class="award-groups">
+            <section class="award-group">
+              <h3><span>01</span> 国际级别</h3>
+              <ol class="awards-list">
+                <li><span class="award-level">铜奖</span><strong>亚洲新锐艺术与设计大奖《未来标本》</strong><time>2025.09</time></li>
+                <li><span class="award-level">入围</span><strong>亚洲新锐艺术与设计大奖《习惯性空转》</strong><time>2025.08</time></li>
+                <li><span class="award-level">银奖</span><strong>金砖国家职业技能大赛（增强与虚拟现实）</strong><time>2022.11</time></li>
+              </ol>
+            </section>
+            <section class="award-group">
+              <h3><span>02</span> 国家级别</h3>
+              <ol class="awards-list">
+                <li><span class="award-level">一等奖</span><strong>第 13 届未来设计师 AIGC 赛道《彼岸信号》</strong><time>2025.08</time></li>
+                <li><span class="award-level">入围</span><strong>AIGC 赛道 & 平潭两岸青年影展《彼岸信号》</strong><time>2025.08</time></li>
+                <li><span class="award-level">二等奖</span><strong>中国好创意大赛《网》</strong><time>2025.08</time></li>
+                <li><span class="award-level">三等奖</span><strong>第 15 届大学生广告设计大赛</strong><time>2023.09</time></li>
+                <li><span class="award-level">优秀奖</span><strong>KTK 斩强设计奖《彼岸信号》</strong><time>2025.11</time></li>
+              </ol>
+            </section>
+          </div>
+        </section>
+
+        <div class="service-grid reveal" aria-label="服务内容">
+          <article>
+            <span>01</span>
+            <h3>AI 视觉与 AIGC 内容</h3>
+            <p>概念生成、影像视觉、内容包装、创意资产拓展。</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>品牌视觉与商业传播</h3>
+            <p>Campaign 视觉、周边产品、视频内容、社媒传播素材。</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>互动装置与创意媒体</h3>
+            <p>TouchDesigner、空间影像、传感交互、现场体验设计。</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>三维影像与产品表达</h3>
+            <p>C4D / OC 建模渲染、3D 打印、产品概念与展示视频。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="channels-section" id="channels">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">Channels</div>
+            <h2>内容账号与长期传播能力</h2>
+          </div>
+          <p>长期深耕数码硬件与汽车内容，连接技术、视觉、品牌与平台运营，将创意转化为可传播、可增长、可商业化的内容价值。</p>
+        </div>
+        <div class="channel-grid reveal" data-channel-grid></div>
+      </section>
+
+      <section class="contact-section" id="contact">
+        <div class="contact-inner reveal">
+          <div>
+            <div class="section-kicker">Contact</div>
+            <h2>连接技术、视觉、内容与商业，让创意从概念走向真实体验，并转化为可传播、可落地的价值。</h2>
+          </div>
+          <div class="contact-list">
+            <a href="mailto:Yantti3841@outlook.com">邮箱：Yantti3841@outlook.com</a>
+            <span>WeChat：AlienObserver3841</span>
+            <a class="contact-link" href="https://500px.com.cn/GuanXer" target="_blank" rel="noreferrer">
+              <img class="brand-icon" src="./site-assets/icon-500px.png" alt="" aria-hidden="true" />
+              <span class="contact-label">视觉中国主页</span>
+            </a>
+            <a class="contact-link" href="https://www.xinpianchang.com/u13756257" target="_blank" rel="noreferrer">
+              <img class="brand-icon" src="./site-assets/icon-xpc.png" alt="" aria-hidden="true" />
+              <span class="contact-label">新片场主页</span>
+            </a>
+            <a class="contact-link" href="https://www.xiaohongshu.com/user/profile/5fd0f2c00000000001009459" target="_blank" rel="noreferrer">
+              <img class="brand-icon" src="./site-assets/icon-xhs.png" alt="" aria-hidden="true" />
+              <span class="contact-label">小红书主页</span>
+            </a>
+            <a class="contact-link" href="https://www.instagram.com/yantti_chen/" target="_blank" rel="noreferrer">
+              <img class="brand-icon" src="./site-assets/icon-instagram.png" alt="" aria-hidden="true" />
+              <span class="contact-label">Instagram</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="project-modal" data-modal aria-hidden="true">
+      <button class="modal-backdrop" type="button" data-close-modal aria-label="关闭项目详情"></button>
+      <article class="modal-panel" role="dialog" aria-modal="true" aria-label="项目详情">
+        <button class="icon-button" type="button" data-close-modal aria-label="关闭">
+          <span></span>
+          <span></span>
+        </button>
+        <div class="modal-content" data-modal-content></div>
+      </article>
+    </div>
+
+    <div class="media-lightbox" data-media-lightbox aria-hidden="true">
+      <button class="media-lightbox-backdrop" type="button" data-lightbox-close aria-label="关闭图片预览"></button>
+      <figure class="media-lightbox-stage">
+        <img data-lightbox-image alt="" />
+      </figure>
+      <button class="media-lightbox-close" type="button" data-lightbox-close aria-label="关闭图片预览">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

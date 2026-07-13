@@ -1,0 +1,95 @@
+Eric Chen Portfolio - Website Package
+Files: 91
+Total bytes: 268914510
+
+       55865  app.js
+        4286  bilibili logo.ico
+       14879  index.html
+         931  README.md
+      405520  site-assets/channel-automotive-case.webp
+        7512  site-assets/icon-500px.png
+       70409  site-assets/icon-instagram.png
+       18996  site-assets/icon-xhs.png
+       23692  site-assets/icon-xpc.png
+       62852  site-assets/profile.jpg
+    37291758  site-assets/video/an-ko-rau.mp4
+    76558431  site-assets/video/cloud-mirage.mp4
+    22994616  site-assets/video/future-specimens.mp4
+    64574867  site-assets/video/habitual-idling.mp4
+     1633922  site-assets/video/home-bg.mp4
+     9599739  site-assets/video/noise-life.mp4
+    27285429  site-assets/video/reality-trace.mp4
+    15919623  site-assets/video/solar-terms.mp4
+      154632  site-assets/work-a10.jpg
+      124042  site-assets/work-cloud-mirage.jpg
+      144887  site-assets/work-connector.jpg
+      146645  site-assets/work-future-specimens.jpg
+      197825  site-assets/work-habitual-idling.jpg
+      122832  site-assets/work-noise-life.jpg
+      144875  site-assets/work-reality-trace.jpg
+       91958  styles.css
+      131772  其他/封面.webp
+       98974  其他/新片场封面.webp
+      186208  其他/视觉中国图片.jfif
+       15516  国产芯片.webp
+       71094  项目1 FUTURE SPECIMENS 未来标本/1.1.webp
+      255596  项目1 FUTURE SPECIMENS 未来标本/1.2.webp
+       89110  项目1 FUTURE SPECIMENS 未来标本/1.3.webp
+       77690  项目1 FUTURE SPECIMENS 未来标本/1.4.webp
+       59594  项目1 FUTURE SPECIMENS 未来标本/1.5.webp
+       34596  项目1 FUTURE SPECIMENS 未来标本/1.6.webp
+      227350  项目2Project 2 HABITUAL IDLING 习惯性空转/2.1.webp
+      249470  项目2Project 2 HABITUAL IDLING 习惯性空转/2.2.webp
+       73532  项目2Project 2 HABITUAL IDLING 习惯性空转/2.3.webp
+      175086  项目2Project 2 HABITUAL IDLING 习惯性空转/2.4.webp
+      161602  项目2Project 2 HABITUAL IDLING 习惯性空转/2.5.webp
+      175834  项目2Project 2 HABITUAL IDLING 习惯性空转/2.6.webp
+      159916  项目2Project 2 HABITUAL IDLING 习惯性空转/2.7.webp
+      166488  项目2Project 2 HABITUAL IDLING 习惯性空转/2.8.webp
+      134686  项目3 云端幻疗院CLOUD MIRAGE SANATORIUM/3.1.webp
+      184520  项目3 云端幻疗院CLOUD MIRAGE SANATORIUM/3.2.webp
+       94332  项目3 云端幻疗院CLOUD MIRAGE SANATORIUM/3.3.webp
+      142852  项目3 云端幻疗院CLOUD MIRAGE SANATORIUM/3.4.webp
+      123618  项目3 云端幻疗院CLOUD MIRAGE SANATORIUM/3.5.webp
+       96124  项目3 云端幻疗院CLOUD MIRAGE SANATORIUM/3.6.webp
+       86506  项目3 云端幻疗院CLOUD MIRAGE SANATORIUM/3.7.webp
+       85682  项目3 云端幻疗院CLOUD MIRAGE SANATORIUM/3.8.webp
+      217332  项目4 24节气丰碑 Solar Terns Monument/4.1.webp
+      217316  项目4 24节气丰碑 Solar Terns Monument/4.2.webp
+      166952  项目4 24节气丰碑 Solar Terns Monument/4.3.webp
+       67010  项目4 24节气丰碑 Solar Terns Monument/4.4.webp
+       67862  项目4 24节气丰碑 Solar Terns Monument/封面.webp
+      177870  项目5 现实印记 REALITY TRACE/5.1.webp
+       76544  项目5 现实印记 REALITY TRACE/5.2.webp
+      137888  项目5 现实印记 REALITY TRACE/5.3.webp
+      132740  项目5 现实印记 REALITY TRACE/5.4.webp
+       72790  项目6 去噪生命 NOISE REDUCTION LIFE/6.1.webp
+       55938  项目6 去噪生命 NOISE REDUCTION LIFE/6.2.webp
+       38096  项目6 去噪生命 NOISE REDUCTION LIFE/6.3.webp
+       67796  项目6 去噪生命 NOISE REDUCTION LIFE/6.4.webp
+       57546  项目6 去噪生命 NOISE REDUCTION LIFE/6.5.webp
+       43296  项目6 去噪生命 NOISE REDUCTION LIFE/6.6.webp
+      108310  项目6 去噪生命 NOISE REDUCTION LIFE/6.7.webp
+       76458  项目6 去噪生命 NOISE REDUCTION LIFE/6.8.webp
+       88762  项目7 安高若/7.1.webp
+      109704  项目7 安高若/7.2.webp
+      126150  项目7 安高若/7.3.webp
+      135130  项目7 安高若/7.4.webp
+      114278  项目7 安高若/7.5.webp
+      152484  项目7 安高若/7.6.webp
+      152102  项目7 安高若/7.7.webp
+       96936  项目7 安高若/7.8.webp
+      109160  项目7 安高若/封面.webp
+      119940  项目8 CONNECTOR 产品设计/8.1.webp
+      171436  项目8 CONNECTOR 产品设计/8.2.webp
+      203448  项目8 CONNECTOR 产品设计/8.3.png
+       96338  项目8 CONNECTOR 产品设计/8.4.webp
+      109376  项目8 CONNECTOR 产品设计/8.5.webp
+      145946  项目8 CONNECTOR 产品设计/8.6.png
+     3066739  项目8 CONNECTOR 产品设计/视频1.mp4
+      186210  项目9 零跑A10 汽车改装/9.1.webp
+       99680  项目9 零跑A10 汽车改装/9.2.webp
+      265046  项目9 零跑A10 汽车改装/9.3.webp
+       32630  项目9 零跑A10 汽车改装/9.4.webp
+      229732  项目9 零跑A10 汽车改装/9.5.webp
+      312768  项目9 零跑A10 汽车改装/9.6.webp
