@@ -293,7 +293,7 @@ let activeVideoObserver = null;
 
 function projectCard(project) {
   const button = document.createElement("button");
-  button.className = "project-card reveal";
+  button.className = "project-card";
   button.type = "button";
   button.dataset.project = project.id;
   button.innerHTML = `
@@ -314,7 +314,6 @@ function projectCard(project) {
 function renderProjects() {
   workGrid.innerHTML = "";
   projects.forEach((project) => workGrid.appendChild(projectCard(project)));
-  observeReveal();
 }
 
 function renderProjectGallery(project) {
@@ -446,17 +445,24 @@ function openProject(projectId) {
   if (heroVideo) {
     heroVideo.play().catch(() => {});
     activeVideoObserver?.disconnect();
-    activeVideoObserver = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && modal.classList.contains("is-open") && !document.hidden) {
-          heroVideo.play().catch(() => {});
-        } else {
-          heroVideo.pause();
-        }
-      },
-      { root: modal.querySelector(".modal-panel"), threshold: 0.08 },
-    );
-    activeVideoObserver.observe(projectHero);
+    activeVideoObserver = null;
+    if ("IntersectionObserver" in window) {
+      try {
+        activeVideoObserver = new IntersectionObserver(
+          ([entry]) => {
+            if (entry.isIntersecting && modal.classList.contains("is-open") && !document.hidden) {
+              heroVideo.play().catch(() => {});
+            } else {
+              heroVideo.pause();
+            }
+          },
+          { root: modal.querySelector(".modal-panel"), threshold: 0.08 },
+        );
+        activeVideoObserver.observe(projectHero);
+      } catch (error) {
+        console.warn("[portfolio] project video observer unavailable", error);
+      }
+    }
 
     projectHero?.addEventListener("click", (event) => {
       if (event.target.closest("button, a")) return;
@@ -469,6 +475,8 @@ function openProject(projectId) {
       fullscreenTarget?.requestFullscreen?.();
     });
   }
+
+  window.setTimeout(forceRevealAll, 2000);
 }
 
 function initPlasmaBackground() {
@@ -647,6 +655,7 @@ function initPlasmaBackground() {
 }
 
 function initMasonryFrames() {
+  if (!("IntersectionObserver" in window)) return false;
   const selectors = [
     ".project-card",
     ".platform-card",
@@ -738,10 +747,11 @@ function initMasonryFrames() {
   });
   mutationObserver.observe(modalContent, { childList: true, subtree: true });
   requestMasonryReveal();
+  return true;
 }
 
 function initEditorialMotion() {
-  document.documentElement.classList.add("motion-ready");
+  if (!("IntersectionObserver" in window)) return false;
   const titleSelectors = [
     ".section-head h2",
     ".about-copy > h2",
@@ -962,6 +972,7 @@ function initEditorialMotion() {
   });
   mutationObserver.observe(modalContent, { childList: true, subtree: true });
   requestParallax();
+  return true;
 }
 
 function initAnimatedWorkList() {
@@ -1413,24 +1424,72 @@ function initBorderGlow() {
   observer.observe(modalContent, { childList: true, subtree: true });
 }
 
+function forceRevealAll() {
+  document.documentElement.classList.add("motion-fallback-complete");
+  document.querySelectorAll(".reveal").forEach((element) => element.classList.add("is-visible"));
+  document
+    .querySelectorAll(".masonry-frame")
+    .forEach((element) => element.classList.add("is-masonry-visible"));
+  document
+    .querySelectorAll(".editorial-title")
+    .forEach((element) => element.classList.add("is-editorial-visible"));
+  document
+    .querySelectorAll(".motion-copy")
+    .forEach((element) => element.classList.add("is-motion-copy-visible"));
+  document
+    .querySelectorAll(".image-reveal-frame")
+    .forEach((element) => element.classList.add("is-image-revealed"));
+
+  const opening = document.querySelector(".hero-opening");
+  if (opening) opening.style.display = "none";
+}
+
 function observeReveal() {
-  const items = document.querySelectorAll(".reveal:not(.is-observed)");
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
+  const items = [...document.querySelectorAll(".reveal:not(.is-observed)")];
+  if (!items.length) return true;
+  if (!("IntersectionObserver" in window)) {
+    items.forEach((item) => item.classList.add("is-visible"));
+    return false;
+  }
+
+  try {
+    let callbackReceived = false;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        callbackReceived = true;
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
           entry.target.classList.add("is-visible");
           observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.14 },
-  );
+        });
+      },
+      { threshold: 0.14, rootMargin: "0px 0px -2%" },
+    );
 
-  items.forEach((item) => {
-    item.classList.add("is-observed");
-    observer.observe(item);
-  });
+    items.forEach((item) => {
+      item.classList.add("is-observed");
+      observer.observe(item);
+    });
+
+    window.setTimeout(() => {
+      if (!callbackReceived) items.forEach((item) => item.classList.add("is-visible"));
+    }, 1200);
+    return true;
+  } catch (error) {
+    console.warn("[portfolio] reveal observer unavailable", error);
+    items.forEach((item) => item.classList.add("is-visible"));
+    return false;
+  }
+}
+
+function safeInitialize(name, initializer, fallback) {
+  try {
+    return initializer() !== false;
+  } catch (error) {
+    console.warn(`[portfolio] ${name} initialization failed`, error);
+    fallback?.();
+    return false;
+  }
 }
 
 document.querySelectorAll("[data-close-modal]").forEach((button) => {
@@ -1461,16 +1520,36 @@ window.addEventListener(
   { passive: true },
 );
 
-renderProjects();
-renderChannels();
-initPlasmaBackground();
-initGalaxy();
-initHeroVideoVisibility();
-initHeroTextInteraction();
-initHeroTextType();
-initBorderGlow();
-initAnimatedWorkList();
-initMasonryFrames();
-initEditorialMotion();
-initMediaLightbox();
-observeReveal();
+safeInitialize("projects", renderProjects, forceRevealAll);
+safeInitialize("channels", renderChannels, forceRevealAll);
+safeInitialize("plasma background", initPlasmaBackground);
+safeInitialize("galaxy", initGalaxy);
+safeInitialize("hero video", initHeroVideoVisibility);
+safeInitialize("hero interaction", initHeroTextInteraction);
+safeInitialize("hero text", initHeroTextType);
+safeInitialize("border glow", initBorderGlow);
+safeInitialize("work list", initAnimatedWorkList);
+
+const masonryReady = safeInitialize("masonry motion", initMasonryFrames, forceRevealAll);
+const editorialReady = safeInitialize("editorial motion", initEditorialMotion, forceRevealAll);
+safeInitialize("media lightbox", initMediaLightbox);
+const revealReady = safeInitialize("reveal motion", observeReveal, forceRevealAll);
+
+if (masonryReady && editorialReady && revealReady) {
+  document.documentElement.classList.add("motion-ready");
+} else {
+  forceRevealAll();
+}
+
+const scheduleRevealFallback = (delay = 2000) => window.setTimeout(forceRevealAll, delay);
+scheduleRevealFallback();
+if (document.readyState !== "complete") {
+  window.addEventListener("load", () => scheduleRevealFallback(), { once: true });
+}
+
+window.addEventListener("pageshow", (event) => {
+  if (event.persisted) scheduleRevealFallback(250);
+});
+document.addEventListener("visibilitychange", () => {
+  if (!document.hidden) scheduleRevealFallback(250);
+});

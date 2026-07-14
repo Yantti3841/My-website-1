@@ -1988,8 +1988,8 @@ video {
 }
 
 .reveal {
-  opacity: 0;
-  transform: translateY(26px);
+  opacity: 1;
+  transform: none;
   transition:
     opacity 720ms var(--ease),
     transform 720ms var(--ease);
@@ -2966,6 +2966,122 @@ body.lightbox-open {
   .masonry-frame {
     --masonry-x: 0px !important;
     transform: translate3d(0, 76px, 0) scale(0.96);
+  }
+}
+
+/* Progressive enhancement: animation may decorate content, never gate it. */
+html:not(.motion-ready) .reveal,
+html:not(.motion-ready) .editorial-title,
+html:not(.motion-ready) .motion-copy,
+html:not(.motion-ready) .masonry-frame {
+  clip-path: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+  filter: none !important;
+}
+
+html:not(.motion-ready) .image-reveal-frame .motion-parallax-image {
+  clip-path: none !important;
+  transform: translate3d(0, var(--parallax-y, 0px), 0) scale(1.045) !important;
+}
+
+html:not(.motion-ready) .image-reveal-curtain {
+  transform: scaleX(0) !important;
+}
+
+html:not(.motion-ready) .hero-opening {
+  display: none !important;
+}
+
+html.motion-fallback-complete .reveal,
+html.motion-fallback-complete .editorial-title,
+html.motion-fallback-complete .motion-copy,
+html.motion-fallback-complete .masonry-frame {
+  clip-path: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+  filter: none !important;
+  transition: none !important;
+}
+
+html.motion-fallback-complete .image-reveal-frame .motion-parallax-image {
+  clip-path: none !important;
+  transform: translate3d(0, var(--parallax-y, 0px), 0) scale(1.045) !important;
+  transition: none !important;
+}
+
+html.motion-fallback-complete .image-reveal-curtain {
+  transform: scaleX(0) !important;
+  transition: none !important;
+}
+
+html.motion-fallback-complete .hero-opening {
+  display: none !important;
+}
+
+.motion-ready .reveal:not(.is-visible):not(.hero-content) {
+  opacity: 0;
+  transform: translateY(26px);
+}
+
+.motion-ready .editorial-title:not(.is-editorial-visible) {
+  clip-path: inset(0 100% 0 0);
+  opacity: 0;
+  transform: translate3d(-96px, 0.7em, 0) scaleX(0.62) skewX(-5deg);
+  filter: blur(14px);
+}
+
+.motion-ready .motion-copy:not(.is-motion-copy-visible) {
+  clip-path: inset(0 0 100% 0);
+  opacity: 0;
+  transform: translate3d(0, 42px, 0);
+  filter: blur(8px);
+}
+
+.motion-ready .masonry-frame:not(.is-masonry-visible) {
+  clip-path: inset(0 0 100% 0);
+  opacity: 0;
+  transform: translate3d(var(--masonry-x, 0), 126px, 0) scaleX(0.9) scaleY(0.95)
+    rotate(var(--masonry-tilt, 0deg));
+  filter: blur(14px) saturate(0.62);
+}
+
+.motion-ready .image-reveal-frame:not(.is-image-revealed) .motion-parallax-image {
+  clip-path: inset(0 100% 0 0);
+  transform: translate3d(0, calc(var(--parallax-y, 0px) + 34px), 0) scale(1.12);
+}
+
+.motion-ready .image-reveal-frame:not(.is-image-revealed) .image-reveal-curtain {
+  transform: scaleX(1);
+}
+
+/* These wrappers contain their own title/copy/card motion and must never double-hide. */
+.motion-ready .section-head.reveal,
+.motion-ready .intro-band.reveal,
+.motion-ready .platform-grid.reveal,
+.motion-ready .about-copy.reveal,
+.motion-ready .awards-panel.reveal,
+.motion-ready .service-grid.reveal,
+.motion-ready .contact-inner.reveal,
+.motion-ready .hero-content.reveal {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-ready .reveal,
+  .motion-ready .editorial-title,
+  .motion-ready .motion-copy,
+  .motion-ready .masonry-frame,
+  .motion-ready .image-reveal-frame .motion-parallax-image {
+    clip-path: none;
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+
+  .motion-ready .image-reveal-curtain {
+    transform: scaleX(0);
   }
 }
 
